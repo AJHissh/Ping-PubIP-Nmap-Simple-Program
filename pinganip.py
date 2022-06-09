@@ -1,6 +1,4 @@
-from ast import Return
 import os 
-import ctypes
 import subprocess
 
 
@@ -8,7 +6,6 @@ def ping_cmd():
     ip = input("Please enter ip: ")  
     if ip is not None:
         print(ip)
-        # cmd = f'ping -a -c {ip} -n 1 > /dev/null 2>&1' (for linux)
         cmd = f'ping -t -a {ip}'
         os.system(cmd)
     else:
@@ -19,7 +16,6 @@ def nmap_cmd():
     ip = input("Please enter ip: ")  
     if ip is not None:
         print(ip)
-        # cmd = f'ping -a -c {ip} -n 1 > /dev/null 2>&1' (for linux)
         cmd = f'nmap -sV -A {ip}'
         os.system(cmd)
     else:
@@ -34,15 +30,13 @@ def ping_map():
 
     if choice == "nmap":
         nmap_cmd()
-        return 1
     if choice == "ping":
         ping_cmd()
-        return 1
     if choice == "pub-ip":
         get_pub_id()
-        return 1
+    if choice == "exit":
+        exit()
 
-# count = ping_map
 
 while ping_map != 0:
     ping_map()
