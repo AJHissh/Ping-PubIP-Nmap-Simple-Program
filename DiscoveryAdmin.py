@@ -30,7 +30,7 @@ def net_stat():
     print("Must run program with admin privileges, press enter to continue")
     wait = input("")
     if wait is not None:
-        cmd = f'netstat -b'
+        cmd = f'netstat -b -a -F -o'
         os.system(cmd)
     else:
         return net_stat()
